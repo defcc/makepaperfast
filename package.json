@@ -1,0 +1,22 @@
+{
+  "name": "makepaperfast",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run",
+    "build:assets": "esbuild src/client.jsx --bundle --jsx=automatic --minify --outfile=dist/app.js && tailwindcss -i src/styles.css -o dist/styles.css --minify && cp src/practice-font/OFL.txt dist/practice-font-license.txt && cp src/music-symbols/OFL.txt dist/music-symbol-license.txt",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.5",
+    "esbuild": "0.28.2",
+    "tailwindcss": "4.3.5",
+    "wrangler": "4.120.0"
+  }
+}
